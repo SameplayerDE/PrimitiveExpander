@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimitiveExpander", "PrimitiveExpander\PrimitiveExpander.csproj", "{AFFC56C9-864B-461F-8481-69D4CBDF1A6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFFC56C9-864B-461F-8481-69D4CBDF1A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFC56C9-864B-461F-8481-69D4CBDF1A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFC56C9-864B-461F-8481-69D4CBDF1A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFC56C9-864B-461F-8481-69D4CBDF1A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
