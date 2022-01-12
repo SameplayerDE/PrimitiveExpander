@@ -5,14 +5,14 @@ namespace PrimitiveExpander
 {
     public static class QuadRenderer
     {
-        private static readonly VertexPositionColor[] _vertices;
+        private static readonly VertexPositionColorTexture[] _vertices;
         private static readonly int[] _indicesF;
         private static readonly int[] _indicesH;
 
         static QuadRenderer()
         {
             // ReSharper disable once HeapView.ObjectAllocation.Evident
-            _vertices = new VertexPositionColor[4];
+            _vertices = new VertexPositionColorTexture[4];
             // ReSharper disable once HeapView.ObjectAllocation.Evident
             _indicesF = new[]
             {

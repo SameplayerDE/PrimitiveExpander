@@ -6,13 +6,13 @@ namespace PrimitiveExpander
 {
     public static class TriangleRenderer
     {
-        private static readonly VertexPositionColor[] _vertices;
+        private static readonly VertexPositionColorTexture[] _vertices;
         private static readonly int[] _indices;
 
         static TriangleRenderer()
         {
             // ReSharper disable once HeapView.ObjectAllocation.Evident
-            _vertices = new VertexPositionColor[3];
+            _vertices = new VertexPositionColorTexture[3];
             // ReSharper disable once HeapView.ObjectAllocation.Evident
             _indices = new[]
             {

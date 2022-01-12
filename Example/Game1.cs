@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using PrimitiveExpander;
@@ -14,10 +15,15 @@ namespace Example
 
         private Vector3 _offset;
 
+        private Vector2 _clicked;
+        private bool _animate;
+        private float _process;
+
         public Game1()
         {
             Content.RootDirectory = "Content";
-
+            IsMouseVisible = true;
+            
             // ReSharper disable once HeapView.ObjectAllocation.Evident
             _graphicsDeviceManager = new GraphicsDeviceManager(this);
 
@@ -37,6 +43,10 @@ namespace Example
 
             PrimitiveRenderer.GraphicsDevice = GraphicsDevice;
             PrimitiveRenderer.Effect = _effect;
+
+            PrimitiveRenderer.EnableVertexColor = false;
+            PrimitiveRenderer.EnableTexture = true;
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -47,12 +57,32 @@ namespace Example
             var totalTime = (float)gameTime.TotalGameTime.TotalSeconds;
 
             var keyboardState = Keyboard.GetState();
+            var mouseState = Mouse.GetState();
 
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 Exit();
             }
+            
+            if (mouseState.LeftButton == ButtonState.Pressed && !_animate)
+            {
+                _clicked = mouseState.Position.ToVector2();
+                _animate = true;
+            }
 
+            if (_animate)
+            {
+                if (_process >= 1)
+                {
+                    _process = 0;
+                    _animate = false;
+                }
+                else
+                {
+                    _process += 1f * deltaTime; 
+                }
+            }
+            
             var (w, h) = GraphicsDevice.Viewport.Bounds.Size;
             var (hw, hh) = GraphicsDevice.Viewport.Bounds.Size.ToVector2() / 2;
 
@@ -70,17 +100,23 @@ namespace Example
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            var (x, y) = Mouse.GetState().Position;
+            var (x, y) = _clicked;
 
-            var a = new Vector3(x, y, 0);
-            var b = new Vector3(x + 10, y, 0);
-            var c = new Vector3(x, y + 10, 0);
-            var d = new Vector3(x + 10, y + 10, 0);
-            
-            PrimitiveRenderer.DrawQuadF(
-                Color.White,
-                a, b, c, d
-            );
+            if (_animate)
+            {
+                PrimitiveRenderer.DrawCircleF(
+                    Color.Black,
+                    new Vector2(x, y),
+                    (float)Math.Sin(_process) * 60f,
+                    5
+                );
+                PrimitiveRenderer.DrawCircleF(
+                    Color.White,
+                    new Vector2(x, y),
+                    (float)Math.Sin(_process) * 50f,
+                    5
+                );
+            }
         }
     }
 }

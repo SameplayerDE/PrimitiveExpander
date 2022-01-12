@@ -5,12 +5,12 @@ namespace PrimitiveExpander
 {
     public static class LineRenderer
     {
-        private static readonly VertexPositionColor[] _vertices;
+        private static readonly VertexPositionColorTexture[] _vertices;
 
         static LineRenderer()
         {
             // ReSharper disable once HeapView.ObjectAllocation.Evident
-            _vertices = new VertexPositionColor[2];
+            _vertices = new VertexPositionColorTexture[2];
         }
 
         public static void DrawLine(
