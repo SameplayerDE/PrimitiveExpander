@@ -6,6 +6,11 @@ namespace PrimitiveExpander
 {
     public class CircleRender
     {
+
+        public static void DrawCircleF()
+        {
+        }
+
         public static void DrawCircleF(
             GraphicsDevice graphicsDevice,
             Effect effect,
