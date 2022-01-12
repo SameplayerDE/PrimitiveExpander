@@ -56,7 +56,7 @@ namespace PrimitiveExpander
                 pass.Apply();
 
                 graphicsDevice.DrawUserIndexedPrimitives(
-                    PrimitiveType.TriangleStrip,
+                    PrimitiveType.TriangleList,
                     _vertices, 0, 4,
                     _indicesF, 0,
                     2
@@ -156,7 +156,7 @@ namespace PrimitiveExpander
                 pass.Apply();
 
                 graphicsDevice.DrawUserIndexedPrimitives(
-                    PrimitiveType.LineStrip,
+                    PrimitiveType.LineList,
                     _vertices, 0, 4,
                     _indicesH, 0,
                     4
