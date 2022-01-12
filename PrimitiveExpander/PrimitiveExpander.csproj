@@ -1,7 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>PrimitiveExpander</RootNamespace>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>H073.PrimitiveExpander</PackageId>
+        <PackageVersion>0.0.4.1</PackageVersion>
+        <Title>PrimitiveExpander</Title>
+        <Authors>Sameplayer</Authors>
+        <Description>Draw Primitive Shapes With Monogame</Description>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <TargetFrameworks>net46;netcoreapp3.1</TargetFrameworks>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    </ItemGroup>
 
 </Project>
