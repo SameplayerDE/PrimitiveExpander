@@ -103,15 +103,13 @@ namespace Example
                     null,
                     Color.Black,
                     new Vector2(x, y),
-                    (float)Math.Sin(_process) * 60f,
-                    5
+                    (float)Math.Sin(_process + 0.5f) * 60f
                 );
                 PrimitiveRenderer.DrawCircleF(
                     null,
                     Color.White,
                     new Vector2(x, y),
-                    (float)Math.Sin(_process) * 50f,
-                    5
+                    (float)Math.Sin(_process) * 50f
                 );
             }
         }
