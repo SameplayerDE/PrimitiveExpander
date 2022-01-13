@@ -34,19 +34,13 @@ namespace Example
 
             // ReSharper disable once HeapView.ObjectAllocation.Evident
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            PrimitiveRenderer.Initialise(GraphicsDevice);
         }
 
         protected override void LoadContent()
         {
-            _effect = Content.Load<Effect>("VertexPC");
-
-
-            PrimitiveRenderer.GraphicsDevice = GraphicsDevice;
-            PrimitiveRenderer.Effect = _effect;
-
-            PrimitiveRenderer.EnableVertexColor = false;
-            PrimitiveRenderer.EnableTexture = true;
-
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -104,13 +98,16 @@ namespace Example
 
             if (_animate)
             {
+                
                 PrimitiveRenderer.DrawCircleF(
+                    null,
                     Color.Black,
                     new Vector2(x, y),
                     (float)Math.Sin(_process) * 60f,
                     5
                 );
                 PrimitiveRenderer.DrawCircleF(
+                    null,
                     Color.White,
                     new Vector2(x, y),
                     (float)Math.Sin(_process) * 50f,
