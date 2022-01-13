@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PrimitiveExpander
 {
-    public class CircleRender
+    public static class CircleRender
     {
 
         public static void DrawCircleF()

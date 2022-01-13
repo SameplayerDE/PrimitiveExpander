@@ -24,6 +24,35 @@ namespace PrimitiveExpander
 
         public static void DrawTriangleF(
             GraphicsDevice graphicsDevice,
+            BasicEffect effect,
+            Matrix world, Matrix view, Matrix projection,
+            Color color,
+            Vector3 a, Vector3 b, Vector3 c)
+        {
+            _vertices[0].Position = a;
+            _vertices[0].Color = color;
+
+            _vertices[1].Position = b;
+            _vertices[1].Color = color;
+
+            _vertices[2].Position = c;
+            _vertices[2].Color = color;
+
+            effect.World = world;
+            effect.View = view;
+            effect.Projection = projection;
+
+            effect.VertexColorEnabled = true;
+
+            foreach (var pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                graphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, _vertices, 0, 1);
+            }
+        }
+        
+        public static void DrawTriangleF(
+            GraphicsDevice graphicsDevice,
             Effect effect,
             Matrix world, Matrix view, Matrix projection,
             Color color,

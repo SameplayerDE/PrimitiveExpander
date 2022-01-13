@@ -12,11 +12,22 @@ namespace PrimitiveExpander
         public static bool EnableTexture;
         public static bool EnableVertexColor;
         public static Texture2D Texture;
+        
+        public static BasicEffect BasicEffect;
+        private static bool _init;
 
         static PrimitiveRenderer()
         {
             EnableTexture = false;
             EnableTexture = true;
+        }
+
+        public static void Init(GraphicsDevice graphicsDevice)
+        {
+            if (_init) return;
+            _init = true;
+            GraphicsDevice = graphicsDevice;
+            BasicEffect = new BasicEffect(graphicsDevice);
         }
         
         #region LineRenderer

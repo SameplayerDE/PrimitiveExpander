@@ -34,6 +34,7 @@ namespace Example
 
             // ReSharper disable once HeapView.ObjectAllocation.Evident
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            PrimitiveRenderer.Init(GraphicsDevice);
         }
 
         protected override void LoadContent()
@@ -117,6 +118,13 @@ namespace Example
                     5
                 );
             }
+
+            TriangleRenderer.DrawTriangleF(
+                GraphicsDevice,
+                PrimitiveRenderer.BasicEffect,
+                PrimitiveRenderer.World, PrimitiveRenderer.View, PrimitiveRenderer.Projection,
+                Color.White,
+                new Vector3(0, 0, 0), new Vector3(x, y, 0), new Vector3(10, 10, 0));
         }
     }
 }
