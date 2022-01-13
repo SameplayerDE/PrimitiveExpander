@@ -26,8 +26,17 @@ namespace PrimitiveExpander
             _vertices[1].Position = b;
             _vertices[1].Color = color;
 
-            effect.Parameters["WorldViewProjection"]
-                ?.SetValue(world * view * projection);
+            if (effect is BasicEffect basicEffect)
+            {
+                basicEffect.World = world;
+                basicEffect.View = view;
+                basicEffect.Projection = projection;
+            }
+            else
+            {
+                effect.Parameters["WorldViewProjection"]
+                    ?.SetValue(world * view * projection);
+            }
 
             foreach (var pass in effect.CurrentTechnique.Passes)
             {

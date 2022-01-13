@@ -38,8 +38,17 @@ namespace PrimitiveExpander
             _vertices[2].Position = c;
             _vertices[2].Color = color;
 
-            effect.Parameters["WorldViewProjection"]
-                ?.SetValue(world * view * projection);
+            if (effect is BasicEffect basicEffect)
+            {
+                basicEffect.World = world;
+                basicEffect.View = view;
+                basicEffect.Projection = projection;
+            }
+            else
+            {
+                effect.Parameters["WorldViewProjection"]
+                    ?.SetValue(world * view * projection);
+            }
 
             foreach (var pass in effect.CurrentTechnique.Passes)
             {
@@ -103,8 +112,17 @@ namespace PrimitiveExpander
             _vertices[2].Position = c;
             _vertices[2].Color = color;
 
-            effect.Parameters["WorldViewProjection"]
-                ?.SetValue(world * view * projection);
+            if (effect is BasicEffect basicEffect)
+            {
+                basicEffect.World = world;
+                basicEffect.View = view;
+                basicEffect.Projection = projection;
+            }
+            else
+            {
+                effect.Parameters["WorldViewProjection"]
+                    ?.SetValue(world * view * projection);
+            }
 
             foreach (var pass in effect.CurrentTechnique.Passes)
             {
