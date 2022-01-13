@@ -7,6 +7,7 @@ namespace PrimitiveExpander
     {
         public static GraphicsDevice GraphicsDevice;
         public static Effect Effect;
+        public static BasicEffect BasicEffect;
         public static Matrix World, View, Projection;
         
         public static bool EnableTexture;
