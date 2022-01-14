@@ -63,6 +63,28 @@ namespace PrimitiveExpander
 
         #endregion
 
+#region RectangleRenderer
+
+
+        public static void DrawRectF(
+            Effect effect,
+            Color color,
+            Vector2 position, Vector2 size,
+            float zLayer = 0)
+        {
+            if (!_initialised)  throw new Exception("PrimitiveRender has never been initialised");
+            RectangleRenderer.DrawRectF(
+                GraphicsDevice,
+                effect ?? BasicEffect,
+                World, View, Projection,
+                color,
+                position, size,
+                zLayer
+            );
+        }
+
+        #endregion
+        
         #region QuadRenderer
 
         public static void DrawQuadF(
